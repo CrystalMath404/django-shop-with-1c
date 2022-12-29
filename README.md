@@ -12,6 +12,9 @@ python pip install -r requirements.txt
 ```sh
 python manage.py migrate
 ```
+ 3.1 Создайте локальную БД:
+ ```create user john;create database nw_db;alter role hero with password ‘new_db@123’;grant all privileges on database new_db to john;alter database new_db owner to john;
+  ```
  3. Загрузите тестовые данные в базу:
  ```sh
  python manage.py loaddata fixtures.json
