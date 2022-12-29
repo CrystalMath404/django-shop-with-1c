@@ -2,16 +2,6 @@
 
 ## Инструкция по установке:
 
-### Docker установка (Рекомендовано):
-
-1. Если у вас не установлен Docker: Установите [Docker](https://docs.docker.com/get-docker/).
-
-2. Запустите контейнер:
-```sh
-docker run --rm -p 80:8000 --name shop-django russrage/shop-django
-```
-3. Перейдите по ссылке: (http://127.0.0.1)
-
 ### Простая установка:
 
  1. Установите зависимости:
@@ -22,9 +12,13 @@ python pip install -r requirements.txt
 ```sh
 python manage.py migrate
 ```
+ 3.1 Создайте локальную БД:
+ ```
+ create user john;create database nw_db1;alter role hero with password ‘new_db@123’;grant all privileges on database nw_db1 to john;alter database nw_db1 owner to john;
+  ```
  3. Загрузите тестовые данные в базу:
  ```sh
- python manage.py loaddata fixtures.json
+ python manage.py loaddata  whole.json
  ```
  4. Запустите тестовый сервер:
   ```sh
@@ -73,11 +67,20 @@ python manage.py migrate
     с указанием пользователя и количества товаров.
 * Страница детализации заказа с просмотром списка заказанных товаров.
 
-### Дизайн
 
-* [Главная страница](./resources/index.html).
-* [Страница раздела](./resources/smartphones.html).
-* [Страница незаполненного раздела](./resources/empty_section.html).
-* [Страница товара](./resources/phone.html).
-* [Страница корзины](./resources/cart.html).
-* [Страница входа](./resources/login.html).
+### Описание серверной части (1С: Предприятие)
+
+Используемые программы:
+* 1С: Предприятие 8.3
+* Postgresql + 1С
+* PgAdmin 4
+* Сервер 1с
+
+Возможности пользователей:
+* Клиент серверное взаимодействие с конфигурацией
+* Контроль данных
+* Получение наглядной информации о прибыли за период и количестве остатков
+
+
+
+
